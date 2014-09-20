@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="p1A-Ch-fBf">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="8lg-bc-5Tn">
+            <objects>
+                <viewController id="p1A-Ch-fBf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E4b-0w-Zei"/>
+                        <viewControllerLayoutGuide type="bottom" id="sYi-dG-6eZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l59-IJ-Oex">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSv-kJ-VsO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="25"/>
+                                <state key="normal" title="Recording App?" backgroundImage="Cool-Abstract-Background-iphone-5s-wallpaper-ilikewallpaper_com.jpg">
+                                    <color key="titleColor" red="0.91459324050000002" green="0.91459324050000002" blue="0.91459324050000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="2" kind="modal" id="5di-A7-mt9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RBw-vh-Leb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-327" y="136"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qke-MF-kF4"/>
+                        <viewControllerLayoutGuide type="bottom" id="skq-Tc-tiK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cool-Abstract-Background-iphone-5s-wallpaper-ilikewallpaper_com.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="l5B-sC-Kx3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xtk-3T-WBS">
+                                <rect key="frame" x="58" y="171" width="115" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="4er-5I-ROL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="25"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleColor" red="0.97414232339999995" green="0.97414232339999995" blue="0.97414232339999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordPauseTapped:" destination="2" eventType="touchUpInside" id="qFV-v7-vH9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQz-9Y-X22">
+                                <rect key="frame" x="192" y="177" width="58" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="hwp-mK-4FF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="25"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleColor" red="1" green="0.26681643615752559" blue="0.37444841365550408" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopTapped:" destination="2" eventType="touchUpInside" id="oVe-s5-la3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chQ-Xu-KeN">
+                                <rect key="frame" x="133" y="258" width="55" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="ji3-2V-VYu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="25"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.43794901816694209" green="1" blue="0.19180351106095617" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playTapped:" destination="2" eventType="touchUpInside" id="wh9-AI-a10"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xtk-3T-WBS" firstAttribute="top" secondItem="3" secondAttribute="top" constant="171" id="7OG-Om-DK5"/>
+                            <constraint firstItem="chQ-Xu-KeN" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="Ce4-PF-lDD"/>
+                            <constraint firstAttribute="trailing" secondItem="jQz-9Y-X22" secondAttribute="trailing" constant="70" id="D7y-YH-lpb"/>
+                            <constraint firstItem="Xtk-3T-WBS" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="58" id="Vtu-dw-LQb"/>
+                            <constraint firstItem="jQz-9Y-X22" firstAttribute="baseline" secondItem="Xtk-3T-WBS" secondAttribute="baseline" constant="6" id="ngq-Ec-4wN"/>
+                            <constraint firstItem="chQ-Xu-KeN" firstAttribute="top" secondItem="3" secondAttribute="top" constant="258" id="qYJ-Tn-eWo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playButton" destination="chQ-Xu-KeN" id="4p4-Ak-VmY"/>
+                        <outlet property="recordPauseButton" destination="Xtk-3T-WBS" id="gDS-40-lNB"/>
+                        <outlet property="stopButton" destination="jQz-9Y-X22" id="iWV-Jh-1rF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Cool-Abstract-Background-iphone-5s-wallpaper-ilikewallpaper_com.jpg" width="640" height="1136"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4">
+            <size key="portraitSize" width="320" height="568"/>
+            <size key="landscapeSize" width="568" height="320"/>
+        </simulatedScreenMetrics>
+    </simulatedMetricsContainer>
+</document>
