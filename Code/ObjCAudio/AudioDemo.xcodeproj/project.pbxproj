@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		488C52DE19CD5397005C6130 /* AudioDemo-Prefix in Resources */ = {isa = PBXBuildFile; fileRef = 488C52DD19CD5397005C6130 /* AudioDemo-Prefix */; };
 		488C52E019CDC5D3005C6130 /* Cool-Abstract-Background-iphone-5s-wallpaper-ilikewallpaper_com.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 488C52DF19CDC5D3005C6130 /* Cool-Abstract-Background-iphone-5s-wallpaper-ilikewallpaper_com.jpg */; };
 		488C52E219CDC86D005C6130 /* redsquare.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 488C52E119CDC86D005C6130 /* redsquare.jpg */; };
+		488C52E319CDD8CF005C6130 /* AudioDemo-Prefix in Resources */ = {isa = PBXBuildFile; fileRef = 488C52E519CDD8CF005C6130 /* AudioDemo-Prefix */; };
 		F44B0C4316DA404700E6CD88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44B0C4216DA404700E6CD88 /* UIKit.framework */; };
 		F44B0C4516DA404700E6CD88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44B0C4416DA404700E6CD88 /* Foundation.framework */; };
 		F44B0C4716DA404700E6CD88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44B0C4616DA404700E6CD88 /* CoreGraphics.framework */; };
@@ -25,9 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		488C52DD19CD5397005C6130 /* AudioDemo-Prefix */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "AudioDemo-Prefix"; path = "/Users/cathytie/Dropbox/Swift iOS Course/Week 09 Day 1 - Swift Camera, Audio & Video/htn2014/Code/ObjCAudio/AudioDemo/../../../../../../Desktop/AudioDemo-Prefix"; sourceTree = "<absolute>"; };
 		488C52DF19CDC5D3005C6130 /* Cool-Abstract-Background-iphone-5s-wallpaper-ilikewallpaper_com.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Cool-Abstract-Background-iphone-5s-wallpaper-ilikewallpaper_com.jpg"; sourceTree = "<group>"; };
 		488C52E119CDC86D005C6130 /* redsquare.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redsquare.jpg; sourceTree = "<group>"; };
+		488C52E419CDD8CF005C6130 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = "en.lproj/AudioDemo-Prefix"; sourceTree = "<group>"; };
 		F44B0C3F16DA404700E6CD88 /* AudioDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44B0C4216DA404700E6CD88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F44B0C4416DA404700E6CD88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -112,7 +112,7 @@
 				F44B0C4B16DA404700E6CD88 /* InfoPlist.strings */,
 				F44B0C4E16DA404700E6CD88 /* main.m */,
 				F44B0C5016DA404700E6CD88 /* AudioDemo-Prefix.pch */,
-				488C52DD19CD5397005C6130 /* AudioDemo-Prefix */,
+				488C52E519CDD8CF005C6130 /* AudioDemo-Prefix */,
 				F44B0C5416DA404700E6CD88 /* Default.png */,
 				F44B0C5616DA404700E6CD88 /* Default@2x.png */,
 				F44B0C5816DA404700E6CD88 /* Default-568h@2x.png */,
@@ -174,7 +174,7 @@
 				488C52E219CDC86D005C6130 /* redsquare.jpg in Resources */,
 				F44B0C4D16DA404700E6CD88 /* InfoPlist.strings in Resources */,
 				F44B0C5516DA404700E6CD88 /* Default.png in Resources */,
-				488C52DE19CD5397005C6130 /* AudioDemo-Prefix in Resources */,
+				488C52E319CDD8CF005C6130 /* AudioDemo-Prefix in Resources */,
 				F44B0C5716DA404700E6CD88 /* Default@2x.png in Resources */,
 				F44B0C5916DA404700E6CD88 /* Default-568h@2x.png in Resources */,
 				F44B0C5C16DA404700E6CD88 /* MainStoryboard.storyboard in Resources */,
@@ -198,6 +198,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		488C52E519CDD8CF005C6130 /* AudioDemo-Prefix */ = {
+			isa = PBXVariantGroup;
+			children = (
+				488C52E419CDD8CF005C6130 /* en */,
+			);
+			name = "AudioDemo-Prefix";
+			path = ../../..;
+			sourceTree = "<group>";
+		};
 		F44B0C4B16DA404700E6CD88 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
