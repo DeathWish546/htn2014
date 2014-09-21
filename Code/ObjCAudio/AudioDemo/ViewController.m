@@ -4,6 +4,7 @@
     AVAudioRecorder *recorder;
     AVAudioPlayer *player, *player_background, *player_background2;
     NSMutableArray *soundsArray;
+    NSMutableString *name;
 }
 
 @end
@@ -27,15 +28,12 @@
     [playButton setEnabled:NO];
     
     // Set the audio file
-    NSArray *pathComponents = [NSArray arrayWithObjects:
-                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"a.m4a",
-                               nil];
+    NSArray *pathComponents = [NSArray arrayWithObjects:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],@"Bass.m4a",nil];
 
     NSURL *recordedURL = [NSURL fileURLWithPathComponents:pathComponents];
     NSURL *backgroundURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"MorrisonTrioSample-AirbyJSBach" ofType:@"m4a"]];
     
-    NSString *stringURL = @"http://localhost:9292/files/MyAudioMemo_1.m4a";
+    NSString *stringURL = @"http://omgwow.cloudapp.net:9292/files/Beatboxing.m4a";
     NSURL  *url = [NSURL URLWithString:stringURL];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     NSString *filePath;
@@ -44,7 +42,7 @@
         NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString  *documentsDirectory = [paths objectAtIndex:0];
         
-        filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,@"MyAudioMemo_1.m4a"];
+        filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,@"Beatboxing.m4a"];
         [urlData writeToFile:filePath atomically:YES];
     }
 
@@ -70,8 +68,7 @@
     
     NSURL *backgroundURL2 = [NSURL fileURLWithPath:filePath];
     player_background2 = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundURL2 error:nil];
-    [player_background2 play];
-    //[soundsArray addObject:player_background2];
+    [soundsArray addObject:player_background2];
     
     for (AVAudioPlayer *a in soundsArray) [a prepareToPlay];
 }
@@ -99,7 +96,7 @@
         [player_background2 play];
        
         [recorder performSelector:@selector(record) withObject:nil afterDelay:70.0/1000.0];
-        [recordPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+        //[recordPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
         
         //[player_background2 play];
         
@@ -109,7 +106,7 @@
 
         // Pause recording
         [recorder pause];
-        [recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
+        //[recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
     }
 
     [stopButton setEnabled:YES];
@@ -122,61 +119,54 @@
     for(AVAudioPlayer *a in soundsArray) [a stop];
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setActive:NO error:nil];
+}
+
+- (IBAction)playTapped:(id)sender {
+    if (!recorder.recording){
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
+        [soundsArray addObject:player];
+        //[player play];
+        for(AVAudioPlayer *a in soundsArray) a.currentTime = 0;
+        for(AVAudioPlayer *a in soundsArray) [a play];
+        
+        [stopButton setEnabled:YES];
+    }
+}
+
+#pragma mark - AVAudioRecorderDelegate
+
+- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
+    //[recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
+    [stopButton setEnabled:NO];
+    [playButton setEnabled:YES];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
+//                                                    message: @"NAME YOUR RECORDING!"
+//                                                   delegate: nil
+//                                          cancelButtonTitle:@"OK"
+//                                          otherButtonTitles:nil];
+    UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Title" message:@"Name your recording:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    av.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField * alertTextField = [av textFieldAtIndex:0];
+    alertTextField.placeholder = @"Enter your name";
+    [av show];
     
-   /*NSString *urlString = @"http://localhost:9292/files/MyAudioMemo_1.m4a";
-    NSString *filename = @"MyAudioMemo_1";
     
-    NSMutableURLRequest *request= [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:urlString]];
-    [request setHTTPMethod:@"POST"];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    NSString *boundary = @"---------------------------14737809831466499882746641449";
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
-    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    name = [NSMutableString stringWithString: [[alertView textFieldAtIndex:0] text]];
     
-    NSMutableData *postbody = [NSMutableData data];
-    [postbody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [postbody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"userfile\"; filename=\"MyAudioMemo_1.m4a\"\r\n", filename] dataUsingEncoding:NSUTF8StringEncoding]];
-    [postbody appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    NSData *data = [[NSData alloc] initWithContentsOfFile:[recorder.url path]];
-    [postbody appendData:[NSData dataWithData:data]];
-    [postbody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setHTTPBody:postbody];
-    
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", returnString);*/
-    
-    
-    /*start of new one
-   // NSData *file1Data = [[NSData alloc] initWithContentsOfFile:[recorder.url path]];
-    //NSString *urlString = @"http://localhost:9292/upload";
-    
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//    [request setURL:[NSURL URLWithString:urlString]];
-//    [request setHTTPMethod:@"POST"];
-    
-//    NSString *boundary = @"---------------------------14737809831466499882746641449";
-//    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
-//    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-//    
-//    NSMutableData *body = [NSMutableData data];
-//    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [body appendData:[[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"userfile\"; filename=\"MyAudioMemo_1.m4a\"\r\n"]] dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[NSData dataWithData:file1Data]];
-//    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [request setHTTPBody:body];
-//    */
-  
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    NSDictionary *parameters = @{@"filename": @"a.m4a"};
+    
+    [name appendString: @".m4a"];
+    NSLog(name);
+    NSDictionary *parameters = @{@"filename": @"Bass.m4a"};
     NSURL *filePath = recorder.url;
-    [manager POST:@"http://localhost:9292/upload" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [manager POST:@"http://omgwow.cloudapp.net:9292/upload" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileURL:filePath name:@"file" error:nil];
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -192,26 +182,6 @@
     //NSLog(@"Return String= %@",returnString);
     
     printf("TETS");
-}
-
-- (IBAction)playTapped:(id)sender {
-    if (!recorder.recording){
-        player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
-        [soundsArray addObject:player];
-        [player play];
-        //for(AVAudioPlayer *a in soundsArray) a.currentTime = 0;
-        //for(AVAudioPlayer *a in soundsArray) [a play];
-        
-        [stopButton setEnabled:YES];
-    }
-}
-
-#pragma mark - AVAudioRecorderDelegate
-
-- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
-    [recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
-    [stopButton setEnabled:NO];
-    [playButton setEnabled:YES];    
 }
 
 #pragma mark - AVAudioPlayerDelegate
