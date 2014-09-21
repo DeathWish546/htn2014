@@ -6,6 +6,11 @@
 #import <AWSiOSSDKv2/SQS.h>
 #import <AWSiOSSDKv2/SNS.h>
 
+#import <AFNetworking.h>
+#import <AFHTTPRequestOperation.h>
+#import <AFHTTPRequestOperationManager.h>
+#import <AFHTTPSessionManager.h>
+
 @interface ViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
