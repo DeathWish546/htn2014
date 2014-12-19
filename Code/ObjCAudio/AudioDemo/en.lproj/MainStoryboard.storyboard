@@ -49,46 +49,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="Portrait2.png" translatesAutoresizingMaskIntoConstraints="NO" id="w9C-yC-hqc">
-                                <rect key="frame" x="0.0" y="-11" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="-71" width="320" height="568"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Eb-tm-NL4">
-                                <rect key="frame" x="16" y="72" width="79" height="30"/>
-                                <state key="normal" title="Beatboxing">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="5gI-FH-PkK" kind="modal" animates="NO" id="g5F-nU-xGF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYh-bG-Y1m">
-                                <rect key="frame" x="247" y="72" width="57" height="30"/>
-                                <state key="normal" title="by Koby">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oV-Kk-MzX">
-                                <rect key="frame" x="16" y="132" width="39" height="30"/>
+                                <rect key="frame" x="16" y="71" width="39" height="30"/>
                                 <state key="normal" title="Piano">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mt6-jK-SxE">
-                                <rect key="frame" x="247" y="132" width="48" height="30"/>
+                                <rect key="frame" x="247" y="71" width="48" height="30"/>
                                 <state key="normal" title="by Ana">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7JL-cm-gdg">
-                                <rect key="frame" x="16" y="195" width="42" height="30"/>
+                                <rect key="frame" x="16" y="134" width="42" height="30"/>
                                 <state key="normal" title="Guitar">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CZ-Aj-ckX">
-                                <rect key="frame" x="247" y="195" width="57" height="30"/>
+                                <rect key="frame" x="247" y="134" width="57" height="30"/>
                                 <state key="normal" title="by Koby">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -100,7 +84,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJn-oq-jE5">
-                                <rect key="frame" x="80" y="258" width="160" height="30"/>
+                                <rect key="frame" x="80" y="198" width="160" height="30"/>
                                 <state key="normal" title="Record New First Track">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
